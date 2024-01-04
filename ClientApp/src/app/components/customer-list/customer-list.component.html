@@ -1,0 +1,26 @@
+<article>
+  <input type="text" class="form-control filter-box" placeholder="Type here to filter" (input)="filterCustomers($event)">
+</article>
+
+<div>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col" (click)="sortData('firstName')">First Name</th>
+        <th scope="col" (click)="sortData('lastName')">Last Name</th>
+        <th scope="col" (click)="sortData('email')">Email</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of _filteredCustomers" [ngClass]="{ 'table-active': customer.id == selectedCustomerId}">
+        <td>{{customer.firstName}}</td>
+        <td>{{customer?.lastName}}</td>
+        <td>{{customer.email}}</td>
+        <td><button class="btn btn-primary btn-sm" (click)="edit(customer)">Edit</button></td>
+        <td><button class="btn btn-danger btn-sm" (click)="deleteCustomer(customer)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

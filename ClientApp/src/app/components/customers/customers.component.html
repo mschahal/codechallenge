@@ -1,0 +1,5 @@
+<button (click)="addCustomer()">Add Customer</button>
+<app-customer-list
+  [customers]="customers"
+  (deleteEvent)="deleteCustomer($event)"
+  ></app-customer-list>

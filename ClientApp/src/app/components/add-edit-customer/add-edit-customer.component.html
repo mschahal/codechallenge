@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center" style="min-height: 100vh;">
+  <div class="w-50">
+    <h2>{{ customerId ? 'Edit' : 'Add'}} User</h2>
+    <form [formGroup]="customerForm" class="mb-3 p-3 border rounded">
+
+      <div class="form-group mb-3">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="Enter first name">
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Enter last name">
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter email">
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="customerForm.invalid" (click)="saveCustomer()">Save</button>
+
+    </form>
+  </div>
+</div>
